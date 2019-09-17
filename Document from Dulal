@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+            let copyTextHold = [];
+            let pasteText = [];
+        $(document).ready(function () {
+
+            $(".content-card").hover(() => {
+                $(".copyDiv").show();
+            }, ()=> {
+                $(".copyDiv").hide();
+            })
+
+            // $("#copy").click(() => {
+            //     $(".pasteBtn").each(()=> {
+            //         $(this).show();
+            //     $(".l1").each(()=> {
+            //         $(this).click((e)=> {
+            //             copyTextHold.push($(this).text());
+            //             console.log(copyTextHold);
+            //         })
+            //     })
+            //     })
+            //     alert($(".card-ac-content").text());
+            //     $(".card-ac-content").clone().appendTo(".pasteContent");
+            // })
+            $("#copy").click(()=> {
+                $(".pasteBtn").show();
+                $(".card-ac-content").text();
+            })
+            $("#paste").click(() => {
+                $(".card-ac-content").appendTo(".pasteContent");
+            })
+            $(".pasteContent").hover(() => {
+                $(".pasteContentOverlay").show();
+            })
+            $(".pasteContentOverlay").click(() => {
+                $(".pasteContent").replaceAll();
+            })
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+        }
+
+        .container {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background-color: aqua;
+            width: 200px;
+            height: 100px;
+            float: left;
+            margin-right: 30px;
+        }
+
+        .copyDiv {
+            background-color: blue;
+            width: 200px;
+            display: none;
+        }
+
+        #copy {
+            float: right;
+        }
+
+        .pasteBtn {
+            clear: both;
+            display: none;
+            float: left;
+            width: 300px;
+            height: 100px;
+            border: 2px dashed #32b5f6;
+        }
+
+        .pasteContent {
+            clear: both;
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            background-color: aliceblue;
+        }
+
+        .l1 {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .l2 {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .pasteContentOverlay {
+            display: none;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="content-card">
+            <div class="card-ac-content">
+
+                <div class="l1">Level 1</div>
+                <div class="l2">Level 2</div>
+            </div>
+            <div class="copyDiv">
+                <button id="copy">Copy</button>
+            </div>
+        </div>
+        <div class="content-card">
+            <div class="card-ac-content">
+
+                <div class="l1">Level 1-1</div>
+                <div class="l2">Level 2-1</div>
+            </div>
+            <div class="copyDiv">
+                <button id="copy">Copy</button>
+            </div>
+        </div>
+        <div class="pasteContentOverlay">
+            <div class="replace">Replace</div>
+        </div>
+        <div class="pasteContent">
+
+        </div>
+        <div class="pasteBtn">
+            <button id="paste">Paste</button>
+        </div>
+    </div>
+</body>
+
+</html>
